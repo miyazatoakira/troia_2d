@@ -102,10 +102,10 @@ collisionsMap.forEach((row, i) => {
           animate: true,
           dialogue: [
             '<strong>Troiano:</strong><br><br>...',
-            '<strong>Troiano:</strong><br><br>Ei, forasteiro ! O que faz aqui, hein ?',
+            '<strong>Troiano:</strong><br><br>Ei, forasteiro ! O que faz aqui, hein ? Espera... por acaso você é Heleno ?',
+            '<strong>Troiano:</strong><br><br>Viu aquele cavalo gigante no centro da cidade?<br><br> Uma "oferenda" dos seus, para mostrar nossa vitória esmagadora na guerra de Troia!<br><br>Que ironia, não acha?',
             '<strong>Troiano:</strong><br><br>Deixe-me adivinhar, você é Heleno?<br><br> Veio admirar nossa cidade porque nunca viu algo tão grandioso na sua terra miserável ?',
-            '<strong>Troiano:</strong><br><br>Não está pensando em trazer outro "presente" como aquele cavalo ridículo ?<br><br> Pois fique sabendo que, desta vez, nem chegaria à praça ! Aqui é Tróia, meu caro hahahahaha',
-            '<strong>Troiano:</strong><br><br>Vai conhecer a cidade ? Ótimo, só não se perca nos mercados nem tente subir a Acrópole sem permissão. Se passar pelo templo de Atena, baixe a cabeça e mostre respeito, ou até os deuses vão rir de você.'
+            '<strong>Troiano:</strong><br><br>Vai conhecer a cidade? Ótimo, só não se perca nos mercados nem ouse subir a Acrópole sem permissão. <br><br>Se passar pela estátua do grandioso Apólo, baixe a cabeça e mostre respeito, ou até os deuses vão rir de você.'
           ]
         })
       )
