@@ -59,6 +59,9 @@ timetesImg.src = './img/militar/timetes.png'
 const historiadorImg = new Image()
 historiadorImg.src = './img/faro/historiador.png'
 
+const idosoVinha = new Image()
+idosoVinha.src = './img/faro/idosoguia2.png'
+
 collisionsMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
     // 1035 == Militar
@@ -340,7 +343,7 @@ collisionsMap.forEach((row, i) => {
             x: j * Boundary.width + offset.x,
             y: i * Boundary.height + offset.y
           },
-          image: oldManImg,
+          image: idosoVinha,
           frames: {
             max: 4,
             hold: 297
