@@ -94,7 +94,7 @@ class Boundary {
   }
 
   draw() {
-    c.fillStyle = 'rgba(255, 0, 0,0)'
+    c.fillStyle = 'rgba(255, 0, 0, 0.2)'
     c.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
 }
@@ -104,7 +104,7 @@ class Character extends Sprite {
     position,
     velocity,
     image,
-    frames = { max: 1, hold: 10 },
+    frames = { max: 1, hold: 5 },
     sprites,
     animate = false,
     rotation = 0,

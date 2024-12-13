@@ -47,6 +47,9 @@ militarImg.src = './img/militar/militar.png'
 const mercadorImg = new Image()
 mercadorImg.src = './img/faro/mercador.png'
 
+const mercador2Img = new Image()
+mercador2Img.src = './img/faro/mercador2.png'
+
 const artesaoImg = new Image()
 artesaoImg.src = './img/artesao/Idle.png'
 
@@ -58,6 +61,9 @@ timetesImg.src = './img/militar/timetes.png'
 
 const historiadorImg = new Image()
 historiadorImg.src = './img/faro/historiador.png'
+
+const historiadorApoloImg = new Image
+historiadorApoloImg.src = './img/faro/historiadorApolo.png'
 
 const idosoVinha = new Image()
 idosoVinha.src = './img/faro/idosoguia2.png'
@@ -104,7 +110,7 @@ collisionsMap.forEach((row, i) => {
             '<strong>Troiano:</strong><br><br>...',
             '<strong>Troiano:</strong><br><br>Ei, forasteiro ! O que faz aqui, hein ? Espera... por acaso você é Heleno ?',
             '<strong>Troiano:</strong><br><br>Viu aquele cavalo gigante no centro da cidade?<br><br> Uma "oferenda" dos seus, para mostrar nossa vitória esmagadora na guerra de Troia!<br><br>Que ironia, não acha?',
-            '<strong>Troiano:</strong><br><br>Deixe-me adivinhar, você é Heleno?<br><br> Veio admirar nossa cidade porque nunca viu algo tão grandioso na sua terra miserável ?',
+            '<strong>Troiano:</strong><br><br>Veio admirar nossa cidade porque nunca viu algo tão grandioso na sua terra miserável ?',
             '<strong>Troiano:</strong><br><br>Vai conhecer a cidade? Ótimo, só não se perca nos mercados nem ouse subir a Acrópole sem permissão. <br><br>Se passar pela estátua do grandioso Apólo, baixe a cabeça e mostre respeito, ou até os deuses vão rir de você.'
           ]
         })
@@ -125,7 +131,7 @@ collisionsMap.forEach((row, i) => {
           },
           scale: 3,
           dialogue: [
-            '<strong>Idoso:</strong><br><br>Ah, bem-vindo jovem Heleno. Vejo que veio conhecer a grandiosa Tróia. Permita-me guiá-lo com minhas palavras, pois estes caminhos têm história que poucos podem contar. <br><br> Comece pela praça central, onde o mercado está sempre vivo - ali você verá o coração do nosso povo.',
+            '<strong>Idoso:</strong><br><br>Ah, bem-vindo jovem Heleno. Vejo que veio conhecer a grandiosa Tróia.<br><br> Permita-me guiá-lo com minhas palavras, pois estes caminhos têm história que poucos podem contar. <br><br> Comece pela praça central, onde o mercado está sempre vivo - ali você verá o coração do nosso povo.',
             '<strong>Idoso:</strong><br><br>Depois, siga para a direção Norte da cidade, onde estará a acrópole da cidade. <br><br>Lá, no ponto mais alto da cidade, você verá a residência do rei e o verdadeiro símbolo da nossa força. É um lugar que faz até o mais forte lembrar dos deuses.',
             '<strong>Idoso:</strong><br><br>Tróia é mais do que uma cidade, jovem. É um testemunho de resistência e grandeza. <br><br>Que seus passos por aqui sejam leves e suas memórias, eternas !'
           ]
@@ -169,10 +175,39 @@ collisionsMap.forEach((row, i) => {
           image: mercadorImg,
           frames: {
             max: 4,
-            hold: 60
+            hold: 127
           },
           scale: 3,
-          dialogue: ['']
+          dialogue: [
+            '<strong>Mercador Troiano</strong><br><br> Finalmente, a guerra acabou!<br><br> Os helenos se foram, e aquele magnífico cavalo que deixaram é prova da nossa vitória!',
+            '<strong>Mercador Troiano</strong><br><br> Vamos, aproveite!<br><br> Tecidos, joias, especiarias... depois de tanto tempo de conflito, a cidade merece celebrar!',
+            '<strong>Mercador Troiano</strong><br><br> Compre o que precisar, pois tempos de paz trazem novas oportunidades!<br><br> Os deuses sorriram para Troia, e a sorte agora está conosco.',
+            '<strong>Mercador Troiano</strong><br><br> Vá até a praça central e veja o presente dos helenos com seus próprios olhos. <br><br>Um símbolo de que Troia permanece invencível!'
+          ]
+        })
+      )
+    }
+    // 1071 == Mercador 02
+    else if (symbol === 1071) {
+      characters.push(
+        new Character({
+          position: {
+            x: j * Boundary.width + offset.x,
+            y: i * Boundary.height + offset.y
+          },
+          image: mercador2Img,
+          frames: {
+            max: 4,
+            hold: 126
+          },
+          scale: 3,
+          animate: true,
+          dialogue: [
+            '<strong>Jovem Mercador Troiano</strong><br><br>Por fim, a guerra terminou!<br><br> Anos de medo e privações ficaram para trás. Os navios gregos partiram, e Troia pode respirar em paz novamente!',
+            '<strong>Jovem Mercador Troiano</strong><br><br>Venha, festeje comigo! <br><br>Tecidos vibrantes, especiarias perfumadas, cerâmicas esculpidas com mãos <br>hábeis — tudo para celebrar esta vitória gloriosa!',
+            '<strong>Jovem Mercador Troiano</strong><br><br>As ruas se enchem de música, vinho e danças. <br><br>É tempo de vida, não mais de lanças e escudos!',
+            '<strong>Jovem Mercador Troiano</strong><br><br>E se quiser ouvir sobre os dias antigos e as batalhas que ficaram para trás, procure o GUARDIÃO DAS MEMÓRIAS.<br><br> Ele repousa na praça ao lado da acrópole, contando histórias de deuses,<br> heróis e os ecos da guerra que agora chegou ao fim.'
+          ]
         })
       )
     }
@@ -375,17 +410,24 @@ collisionsMap.forEach((row, i) => {
           },
           scale: 3,
           dialogue: [
-            '<strong>Idoso Troiano:</strong><br><br>...',
-            '<strong>Idoso Troiano:</strong><br><br> Ah, jovem, você sente isso? O vento que passa por essas folhas carrega histórias mais antigas do que as muralhas de nossa cidade. <br><br>Cada árvore aqui é um guardião silencioso do tempo e dos deuses.',
-            '<strong>Idoso Troiano:</strong><br><br> Estas oliveiras... símbolo da paz e da sabedoria.<br><br> Dizem que Atena toca seus ramos para nos proteger. <br><br>Seus frutos nos alimentam, e seu óleo ilumina nossos lares e templos.',
-            '<strong>Idoso Troiano:</strong><br><br> Ali, os carvalhos de troncos fortes. <br><br>Essas árvores são sagradas a Zeus, o pai dos deuses. Quando o trovão ecoa, é nesses carvalhos que ele deixa sua marca.<br><br> Ninguém ousa cortar um carvalho sagrado sem invocar a ira divina.',
-            '<strong>Idoso Troiano:</strong><br><br> E não se esqueça dos ciprestes, altos e sombrios. Eles nos lembram da eternidade e do destino final de todos os homens. <br><br>Quando alguém parte para o mundo dos mortos, os ciprestes velam pela passagem de sua alma.',
-            '<strong>Idoso Troiano:</strong><br><br> Este bosque é um pedaço dos céus na terra, jovem.<br><br> Trate estas árvores com respeito, pois nelas habitam os sussurros dos deuses.<br><br> E em tempos sombrios, quando tudo parece perdido, é sob suas sombras que encontramos esperança.'
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>...',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>É com o coração pesado que olho para esta cidade que tanto amei, agora marcada pela dor e pelo sacrifício.<br><br> Não apenas a Troia, mas os corpos dos meus filhos, de meus homens... <br><br>Eles caíram com honra, mas deixaram-me um peso que ninguém pode aliviar.',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Heitor... meu querido Heitor... <br><br>Era o orgulho da nossa casa, o escudo da nossa gente. E agora, o que resta? <br><br>Seus guerreiros, meus filhos, aqueles que jurei proteger, que morreram por um reino que não pôde mais se manter de pé...',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Eu os vejo, um por um, como se fossem sombras a me<br><br>assombrar, e meu peito se aperta com a ausência deles.',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>.....',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Eu pergunto aos deuses, quem nos restará após tantas perdas? <br><br>Que esperança há para aqueles que ainda permanecem?<br><br> O que podemos fazer quando tudo que amamos se despedaça diante de nossos olhos? ',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Eu olho para o horizonte e vejo a cidade que resistiu, mas, mesmo em nossa vitória, somos incapazes de superar o peso de tantas perdas. <br><br>Se ao menos eu pudesse trazer de volta um dos meus filhos... <br><br>Mas já não há mais tempo para lamentações.<br> A guerra nos tomou, a vida nos arrastou.',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Se ao menos houvesse mais um dia de paz... <br><br>Mais uma oportunidade para olhar para os rostos daqueles que se foram...',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Mas o que resta é uma Troia que, mesmo vitoriosa, carrega em seu peito o eco da morte de nossos heróis.<br><br> E a tristeza é nossa companheira, o peso de nossos corações não pode ser lavado.',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Meus filhos, meus homens...',
+            '<strong>Príamo, Rei de Tróia:</strong><br><br>Como continuarei, sem vocês ao meu lado ?'
           ]
         })
       )
-      // 1067 == Historiador
-    } else if (symbol == 1067) {
+
+    }
+    // 1067 == Historiador
+    else if (symbol == 1067) {
       characters.push(
         new Character({
           position: {
@@ -399,16 +441,41 @@ collisionsMap.forEach((row, i) => {
           },
           scale: 3,
           dialogue: [
-            '<strong>Sábio Troiano:</strong><br><br>...',
-            '<strong>Sábio Troiano:</strong><br><br> Ah, jovem, vem se sentar um pouco.<br><br> As pedras frias deste banco guardam tantas histórias quanto estas velhas costas.',
-            '<strong>Sábio Troiano:</strong><br><br> Você quer saber como tudo começou, não é?<br><br> A guerra... a desgraça que caiu sobre nossa amada Troia. <br><br>Pois ouça bem, pois esta história é tão antiga quanto amarga.',
-            '<strong>Sábio Troiano:</strong><br><br> Tudo começou com uma festa divina, no Olimpo. <br><br>O casamento de Peleu e Tétis, os pais do grande Aquiles. Todos os deuses estavam presentes... todos, exceto Éris, a deusa da discórdia. <br><br>Ofendida por não ser convidada, ela lançou entre os convivas uma maçã de ouro com as palavras: ‘Para a mais bela’.',
-            '<strong>Sábio Troiano:</strong><br><br> Então, a disputa começou. Hera, rainha dos deuses; Atena, deusa da sabedoria; e Afrodite, deusa do amor, todas queriam a maçã. <br><br>Elas escolheram um mortal para julgar sua beleza. Um pastor, mas não qualquer pastor... Páris, filho de nosso rei Príamo.',
-            '<strong>Sábio Troiano:</strong><br><br> As deusas não jogam limpo, jovem. Cada uma ofereceu uma tentação ao rapaz. <br><br>Hera prometeu poder e domínio; Atena, sabedoria e glória na guerra. <br><br>Mas Afrodite... Ah, Afrodite ofereceu o que todo jovem coração deseja: o amor da mulher mais bela do mundo.',
-            '<strong>Sábio Troiano:</strong><br><br> E Páris escolheu Afrodite. Com isso, ganhou a paixão de Helena, esposa do rei Menelau de Esparta.<br><br> Louco de desejo, Páris a trouxe para Troia, e com ela, a fúria de toda a Grécia.',
-            '<strong>Sábio Troiano:</strong><br><br> Mil navios cruzaram o mar, com heróis como Agamenon, Ulisses e o furioso Aquiles.<br><br> Vieram exigir vingança e glória. E assim, o que começou com uma maçã dourada terminou em espadas manchadas de sangue.',
-            '<strong>Sábio Troiano:</strong><br><br> Ah, jovem... o destino pode ser cruel, mas as escolhas dos homens são ainda mais.<br><br> Lembre-se desta história, pois foi o desejo de um homem e o orgulho de deuses que nos arrastaram para esta tempestade de morte e destruição.',
-            '<strong>Sábio Troiano:</strong><br><br> Agora vá. <br><br>Que os ventos do tempo carreguem essas palavras para além das muralhas. <br><br>Que não se esqueçam jamais dos erros que nos trouxeram a este destino.'
+            '<strong>Guardião das Memórias:</strong><br><br>...',
+            '<strong>Guardião das Memórias:</strong><br><br> Ah, jovem, vem se sentar um pouco.<br><br> As pedras frias deste banco guardam tantas histórias quanto estas velhas costas.',
+            '<strong>Guardião das Memórias:</strong><br><br> Você quer saber como tudo começou, não é?<br><br> A guerra... a desgraça que caiu sobre nossa amada Troia. <br><br>Pois ouça bem, pois esta história é tão antiga quanto amarga.',
+            '<strong>Guardião das Memórias:</strong><br><br> Tudo começou com uma festa divina, no Olimpo. <br><br>O casamento de Peleu e Tétis, os pais do grande Aquiles. Todos os deuses estavam presentes... todos, exceto Éris, a deusa da discórdia. <br><br>Ofendida por não ser convidada, ela lançou entre os convivas uma maçã de ouro com as palavras: ‘Para a mais bela’.',
+            '<strong>Guardião das Memórias:</strong><br><br> Então, a disputa começou. Hera, rainha dos deuses; Atena, deusa da sabedoria; e Afrodite, deusa do amor, todas queriam a maçã. <br><br>Elas escolheram um mortal para julgar sua beleza. Um pastor, mas não qualquer pastor... Páris, filho de nosso rei Príamo.',
+            '<strong>Guardião das Memórias:</strong><br><br> As deusas não jogam limpo, jovem. Cada uma ofereceu uma tentação ao rapaz. <br><br>Hera prometeu poder e domínio; Atena, sabedoria e glória na guerra. <br><br>Mas Afrodite... Ah, Afrodite ofereceu o que todo jovem coração deseja: o amor da mulher mais bela do mundo.',
+            '<strong>Guardião das Memórias:</strong><br><br> E Páris escolheu Afrodite. Com isso, ganhou a paixão de Helena, esposa do rei Menelau de Esparta.<br><br> Louco de desejo, Páris a trouxe para Troia, e com ela, a fúria de toda a Grécia.',
+            '<strong>Guardião das Memórias:</strong><br><br> Mil navios cruzaram o mar, com heróis como Agamenon, Ulisses e o furioso Aquiles.<br><br> Vieram exigir vingança e glória. E assim, o que começou com uma maçã dourada terminou em espadas manchadas de sangue.',
+            '<strong>Guardião das Memórias:</strong><br><br> Ah, jovem... o destino pode ser cruel, mas as escolhas dos homens são ainda mais.<br><br> Lembre-se desta história, pois foi o desejo de um homem e o orgulho de deuses que nos arrastaram para esta tempestade de morte e destruição.',
+            '<strong>Guardião das Memórias:</strong><br><br> Agora vá. <br><br>Que os ventos do tempo carreguem essas palavras para além das muralhas. <br><br>Que não se esqueçam jamais dos erros que nos trouxeram a este destino.'
+          ]
+        })
+      )
+    }
+    // 1068 == Historiador Apolo
+    else if (symbol == 1068) {
+      characters.push(
+        new Character({
+          position: {
+            x: j * Boundary.width + offset.x,
+            y: i * Boundary.height + offset.y
+          },
+          image: historiadorApoloImg,
+          frames: {
+            max: 4,
+            hold: 297
+          },
+          scale: 3,
+          dialogue: [
+            '<strong>Idoso Troiano:</strong><br><br> Ah... a luz dourada de Apolo nunca se apaga, mesmo quando as sombras ameaçam devorar nossas esperanças.<br><br> Venha, jovem, contemple esta estátua. <br><br>Veja como ele nos observa com seus olhos eternos, segurando sua lira e o arco da verdade.',
+            '<strong>Idoso Troiano:</strong><br><br> Apolo é mais do que um deus do sol. Ele é o guardião da profecia, da cura e também da punição. <br><br>Foi ele quem guiou nossos antepassados com sabedoria... e com suas flechas certeiras, trouxe pragas sobre aqueles que o desrespeitaram.',
+            '<strong>Idoso Troiano:</strong><br><br> Lembre-se, jovem, que Apolo é o deus protetor de nossa Troia. <br><br>Desde os tempos antigos, ele nos abençoa com sua luz e sua orientação. <br><br>Foram suas mãos divinas que ajudaram a erguer estas muralhas sob o comando de Laomedonte.',
+            '<strong>Idoso Troiano:</strong><br><br> Há quem diga que Apolo ainda sussurra presságios aos sacerdotes aqui na acrópole.<br><br> Palavras que, às vezes, são difíceis de ouvir ou compreender... <br><br>Talvez seja ele quem nos avisa do perigo que se esconde sob esta falsa vitória.',
+            '<strong>Idoso Troiano:</strong><br><br> Hoje, vejo os homens cheios de júbilo, e meu coração teme que estamos cegos à verdade. <br><br>Apolo nos dá a luz, mas também pode cegar aqueles que se recusam a ver. <br><br>Que ele nos proteja, e que sua luz não se transforme em chama vingativa.',
+            '<strong>Idoso Troiano:</strong><br><br> Reze, jovem, para que Apolo ainda tenha piedade de Troia. <br><br>Pois quando os deuses se voltam contra nós, nem todas as muralhas do mundo podem nos proteger.'
           ]
         })
       )
