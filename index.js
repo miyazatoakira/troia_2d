@@ -207,7 +207,7 @@ collisionsMap.forEach((row, i) => {
           scale: 3,
           animate: true,
           dialogue: [
-            '<strong>Jovem Mercador Troiano</strong><br><br>Por fim, a guerra terminou!<br><br> Anos de medo e privações ficaram para trás. Os navios gregos partiram, e Troia pode respirar em paz novamente!',
+            '<strong>Jovem Mercador Troiano</strong><br><br>Por fim, a guerra terminou!<br><br> Anos de medo e privações ficaram para trás. Os navios helenos partiram, e Troia pode respirar em paz novamente!',
             '<strong>Jovem Mercador Troiano</strong><br><br>Venha, festeje comigo! <br><br>Tecidos vibrantes, especiarias perfumadas, cerâmicas esculpidas com mãos <br>hábeis — tudo para celebrar esta vitória gloriosa!',
             '<strong>Jovem Mercador Troiano</strong><br><br>As ruas se enchem de música, vinho e danças. <br><br>É tempo de vida, não mais de lanças e escudos!',
             '<strong>Jovem Mercador Troiano</strong><br><br>E se quiser ouvir sobre os dias antigos e as batalhas que ficaram para trás, procure o GUARDIÃO DAS MEMÓRIAS.<br><br> Ele repousa na praça ao lado da acrópole, contando histórias de deuses,<br> heróis e os ecos da guerra que agora chegou ao fim.'
