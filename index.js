@@ -12,8 +12,8 @@ for (let i = 0; i < collisions.length; i += 132) {
 const boundaries = []
 const offset = {
   // Modifica-lo afetará parâmetros, como posição inicial do player (Deslocamento)
-  x: -605,
-  y: -5600
+  x: -555,
+  y: -5800
 }
 
 collisionsMap.forEach((row, i) => {
@@ -68,6 +68,9 @@ historiadorApoloImg.src = './img/faro/historiadorApolo.png'
 const idosoVinha = new Image()
 idosoVinha.src = './img/faro/idosoguia2.png'
 
+const jovemRioImg = new Image()
+jovemRioImg.src = './img/jovem.png'
+
 collisionsMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
     // 1035 == Militar
@@ -81,8 +84,9 @@ collisionsMap.forEach((row, i) => {
           image: militarImg,
           frames: {
             max: 4,
-            hold: 297
+            hold: 180
           },
+          animate:true,
           scale: 3,
           dialogue: [
             '<strong>Militar Troiano:</strong><br><br>...',
@@ -154,11 +158,11 @@ collisionsMap.forEach((row, i) => {
           },
           scale: 3,
           dialogue: [
-            '<strong>Ferreiro:</strong><br><br> Ah, um jovem Heleno! Seja bem-vindo à minha forja. Aqui o aço ganha forma, e o bronze vira lenda nas mãos de guerreiros e viajantes.',
-            '<strong>Ferreiro:</strong><br><br> Veja esta espada de bronze, forjada com liga forte e resistente. O estanho veio das montanhas hititas, e o cobre dos portos do Chipre. Equilibrada, afiada e pronta para o combate — uma lâmina digna de quem busca glória nos campos de batalha.',
-            '<strong>Ferreiro:</strong><br><br> Se prefere algo para defesa, tenho escudos laminados com bronze, leves o bastante para manobrar, mas fortes o suficiente para repelir lanças e flechas.',
-            '<strong>Ferreiro:</strong><br><br> Não deixe de olhar também nossas pontas de lança e pás de arado. Troia não é só uma cidade de guerreiros, mas de agricultores e mercadores. <br><br>Forjamos tanto para a guerra quanto para a paz.',
-            '<strong>Ferreiro:</strong><br><br> Lembre-se: o segredo de uma boa arma não está apenas no metal, mas na alma daquele que a empunha. Escolha bem, rapaz, e que Hefesto guie seu caminho !'
+            '<strong>Ferreiro:</strong><br><br> Ah, um jovem Heleno! Seja bem-vindo à minha forja.<br><br> Aqui o aço ganha forma, e o bronze vira lenda nas mãos de guerreiros e viajantes.',
+            '<strong>Ferreiro:</strong><br><br> Veja esta espada de bronze, forjada com liga forte e resistente.<br><br> O estanho veio das montanhas hititas, e o cobre dos portos do Chipre. <br><br>Equilibrada, afiada e pronta para o combate — uma lâmina digna de quem busca glória nos campos de batalha.',
+            '<strong>Ferreiro:</strong><br><br> Se prefere algo para defesa, tenho escudos laminados com bronze, <br><br>leves o bastante para manobrar, mas fortes o suficiente para repelir lanças e flechas.',
+            '<strong>Ferreiro:</strong><br><br> Não deixe de olhar também nossas pontas de lança e pás de arado.<br><br> Troia não é só uma cidade de guerreiros, mas de agricultores e mercadores. <br><br>Forjamos tanto para a guerra quanto para a paz.',
+            '<strong>Ferreiro:</strong><br><br> Lembre-se: o segredo de uma boa arma não está apenas no metal <br><br>mas na alma daquele que a empunha. <br><br>Escolha bem, rapaz, e que Hefesto guie seu caminho !'
           ]
         })
       )
@@ -226,17 +230,17 @@ collisionsMap.forEach((row, i) => {
           },
           scale: 3,
           dialogue: [
-            '<strong>Artesão:</strong><br><br> Ah, jovem Heleno! Seja bem-vindo ao mercado de Troia! Vejo que os ventos do Helesponto o trouxeram com segurança. Em que posso servi-lo hoje? Temos os melhores tecidos da região, dignos até de reis!',
-            '<strong>Artesão:</strong><br><br> Aqui em Troia VI, somos famosos por nossa lã macia, obtida das ovelhas que pastam nos campos férteis da Trôade. <br><br> Veja este manto vermelho tingido com púrpura de múrice. A cor é rica e vibrante, símbolo de nobreza. Não há tecido que desperte mais inveja entre os chefes!',
+            '<strong>Artesão:</strong><br><br> Ah, jovem Heleno! Seja bem-vindo ao mercado de Troia! <br><br>Vejo que os ventos do Helesponto o trouxeram com segurança. <br><br>Em que posso servi-lo hoje? Temos os melhores tecidos da região, dignos até de reis!',
+            '<strong>Artesão:</strong><br><br> Aqui em Troia VI, somos famosos por nossa lã macia, obtida das ovelhas que pastam nos campos férteis da Trôade. <br><br> Veja este manto vermelho tingido com púrpura de múrice. <br><br>A cor é rica e vibrante, símbolo de nobreza. Não há tecido que desperte mais inveja entre os chefes!',
             '<strong>Artesão:</strong><br><br> Ah, o linho troiano é famoso em toda a região! Cultivado perto do rio Escamandro, é tecido com habilidade pelas mulheres locais. Leve e fresco, perfeito para os verões escaldantes. Veja esta túnica branca, lisa como a água corrente.<br><br> Também temos peças bordadas com padrões geométricos, uma influência dos nossos contatos com os minoicos de Creta.',
-            '<strong>Artesão:</strong><br><br> Escolha com sabedoria, rapaz! Um bom tecido pode ser um companheiro fiel em suas jornadas ou um presente digno dos salões de Micenas. Troia está sempre pronta para atender aqueles que apreciam qualidade e tradição!'
+            '<strong>Artesão:</strong><br><br> Escolha com sabedoria, rapaz! <br><br>Um bom tecido pode ser um companheiro fiel em suas jornadas ou um presente digno dos salões de Micenas. <br><br>Troia está sempre pronta para atender aqueles que apreciam qualidade e tradição!'
           ]
         })
       )
     }
 
-    // Sacerdote == 1071
-    else if (symbol === 1071) {
+    // Sacerdote == 1081
+    else if (symbol === 1081) {
       characters.push(
         new Character({
           position: {
@@ -361,17 +365,17 @@ collisionsMap.forEach((row, i) => {
           },
           scale: 3,
           dialogue: [
-            '<strong>Tímetes, Guerreiro Troiano:</strong><br><br> Troianos, vejam este presente! Não há mais guerra! Após tantos anos de sofrimento, os gregos finalmente se renderam. <br>Este cavalo imenso é um tributo à nossa grandeza e coragem!',
-            '<strong>Tímetes, Guerreiro Troiano:</strong><br><br> Não há dúvida, é claro como o sol! Os gregos reconhecem nossa força. <br>Ulisses e seus guerreiros, astutos como sempre, deixaram para trás este troféu.<br>O que mais poderiam nos dar, senão algo digno de nossa vitória?',
-            '<strong>Tímetes, Guerreiro Troiano:</strong><br><br> Este cavalo, grande e imponente, é a chave para nossa paz. <br>Levá-lo para dentro das muralhas é o passo final. Não há mais inimigos, apenas a vitória e o alívio!<br><br> O medo da guerra se foi, agora é hora de celebrarmos!',
+            '<strong>Tímetes, Guerreiro Troiano:</strong><br><br> Troianos, vejam este presente! <br><br>Não há mais guerra!<br><br> Após tantos anos de sofrimento, os gregos finalmente se renderam. <br><br>Este cavalo imenso é um tributo à nossa grandeza e coragem!',
+            '<strong>Tímetes, Guerreiro Troiano:</strong><br><br> Não há dúvida, é claro como o sol! <br><br>Os gregos reconhecem nossa força. <br><br>Ulisses e seus guerreiros, astutos como sempre, deixaram para trás este troféu.<br><br>O que mais poderiam nos dar, senão algo digno de nossa vitória?',
+            '<strong>Tímetes, Guerreiro Troiano:</strong><br><br> Este cavalo, grande e imponente, é a chave para nossa paz. <br><br>Levá-lo para dentro das muralhas é o passo final. Não há mais inimigos, apenas a vitória e o alívio!<br><br> O medo da guerra se foi, agora é hora de celebrarmos!',
             '<strong>Tímetes, Guerreiro Troiano:</strong><br><br> "O que há a temer? Este cavalo é um presente dos deuses! <br>Vamos celebrar a nossa grandeza! <br><br><br><br>(Eneida, Livro II, de Virgílio)"'
           ]
         })
       )
     }
 
-    // 1066 == Idoso vinhas
-    else if (symbol == 1066) {
+    // 1096 == Idoso vinhas
+    else if (symbol == 1096) {
       characters.push(
         new Character({
           position: {
@@ -379,31 +383,6 @@ collisionsMap.forEach((row, i) => {
             y: i * Boundary.height + offset.y
           },
           image: idosoVinha,
-          frames: {
-            max: 4,
-            hold: 297
-          },
-          scale: 3,
-          dialogue: [
-            '<strong>Idoso Troiano:</strong><br><br>...',
-            '<strong>Idoso Troiano:</strong><br><br> Ah, jovem, você sente isso? O vento que passa por essas folhas carrega histórias mais antigas do que as muralhas de nossa cidade. <br><br>Cada árvore aqui é um guardião silencioso do tempo e dos deuses.',
-            '<strong>Idoso Troiano:</strong><br><br> Estas oliveiras... símbolo da paz e da sabedoria.<br><br> Dizem que Atena toca seus ramos para nos proteger. <br><br>Seus frutos nos alimentam, e seu óleo ilumina nossos lares e templos.',
-            '<strong>Idoso Troiano:</strong><br><br> Ali, os carvalhos de troncos fortes. <br><br>Essas árvores são sagradas a Zeus, o pai dos deuses. Quando o trovão ecoa, é nesses carvalhos que ele deixa sua marca.<br><br> Ninguém ousa cortar um carvalho sagrado sem invocar a ira divina.',
-            '<strong>Idoso Troiano:</strong><br><br> E não se esqueça dos ciprestes, altos e sombrios. Eles nos lembram da eternidade e do destino final de todos os homens. <br><br>Quando alguém parte para o mundo dos mortos, os ciprestes velam pela passagem de sua alma.',
-            '<strong>Idoso Troiano:</strong><br><br> Este bosque é um pedaço dos céus na terra, jovem.<br><br> Trate estas árvores com respeito, pois nelas habitam os sussurros dos deuses.<br><br> E em tempos sombrios, quando tudo parece perdido, é sob suas sombras que encontramos esperança.'
-          ]
-        })
-      )
-    }
-    // 1066 == Idoso vinhas
-    else if (symbol == 1066) {
-      characters.push(
-        new Character({
-          position: {
-            x: j * Boundary.width + offset.x,
-            y: i * Boundary.height + offset.y
-          },
-          image: oldManImg,
           frames: {
             max: 4,
             hold: 297
@@ -476,6 +455,29 @@ collisionsMap.forEach((row, i) => {
             '<strong>Idoso Troiano:</strong><br><br> Há quem diga que Apolo ainda sussurra presságios aos sacerdotes aqui na acrópole.<br><br> Palavras que, às vezes, são difíceis de ouvir ou compreender... <br><br>Talvez seja ele quem nos avisa do perigo que se esconde sob esta falsa vitória.',
             '<strong>Idoso Troiano:</strong><br><br> Hoje, vejo os homens cheios de júbilo, e meu coração teme que estamos cegos à verdade. <br><br>Apolo nos dá a luz, mas também pode cegar aqueles que se recusam a ver. <br><br>Que ele nos proteja, e que sua luz não se transforme em chama vingativa.',
             '<strong>Idoso Troiano:</strong><br><br> Reze, jovem, para que Apolo ainda tenha piedade de Troia. <br><br>Pois quando os deuses se voltam contra nós, nem todas as muralhas do mundo podem nos proteger.'
+          ]
+        })
+      )
+    }
+    // 1069 == Jovem rio
+    else if (symbol == 1069) {
+      characters.push(
+        new Character({
+          position: {
+            x: j * Boundary.width + offset.x,
+            y: i * Boundary.height + offset.y
+          },
+          image: jovemRioImg,
+          frames: {
+            max: 4,
+            hold: 297
+          },
+          scale: 1,
+          dialogue: [
+            '<strong>Jovem Troiano:</strong><br><br>Este é o Escamandro, ou Xanto, como os antigos o chamam.<br><br> Um rio tão antigo quanto a própria Troia, que corre desde os tempos de nossos ancestrais. Ele nasce nas montanhas ao norte, fluindo pelas planícies até desaguar no mar, alimentando nossas terras férteis.',
+            '<strong>Jovem Troiano:</strong><br><br>Muitos dos nossos guerreiros já passaram por aqui <br><br>em tempos de paz ou guerra, lavando o suor e a poeira da batalha nas suas águas. <br><br>Ele não é apenas um rio para nós, mas um símbolo de Troia. Diz-se que até os próprios deuses visitam suas margens em segredo, e o rio é abençoado, com seu curso constante nunca se desviando.',
+            '<strong>Jovem Troiano:</strong><br><br>Mas não é apenas a guerra que ele testemunha. <br><br>Suas águas dão vida à nossa terra, garantindo que as lavouras cresçam e que nossa cidade se mantenha próspera. Às vezes, penso que ele é um dos poucos que não sente os efeitos da luta. <br><br>Não importa quem vença ou perca, o Escamandro sempre seguirá seu curso.'
+
           ]
         })
       )
@@ -579,8 +581,8 @@ function animate() {
   player.animate = false
 
   if (keys.w.pressed && lastKey === 'w') {
-    player.animate = true
     player.image = player.sprites.up
+    player.animate = true
 
     checkForCharacterCollision({
       characters,
@@ -612,8 +614,8 @@ function animate() {
         movable.position.y += 3
       })
   } else if (keys.a.pressed && lastKey === 'a') {
-    player.animate = true
     player.image = player.sprites.left
+    player.animate = true
 
     checkForCharacterCollision({
       characters,
@@ -645,8 +647,8 @@ function animate() {
         movable.position.x += 3
       })
   } else if (keys.s.pressed && lastKey === 's') {
-    player.animate = true
     player.image = player.sprites.down
+    player.animate = true
 
     checkForCharacterCollision({
       characters,

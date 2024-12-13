@@ -1,117 +1,192 @@
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-            rel="stylesheet"
-        />
-        <style>
-            * {
-                font-family: 'Press Start 2P', cursive;
-                box-sizing: border-box;
-            }
 
-            body {
-                background-color: black;
-                overflow: hidden;
-            }
+<head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            font-family: 'Press Start 2P', cursive;
+            box-sizing: border-box;
+        }
 
-            h1 {
-                margin: 0;
-            }
+        body {
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
 
-            br {
-                margin: 0;
-                padding: 0;
-                line-height: normal;
-            }
+        h1 {
+            margin: 0;
+        }
 
-            button {
-                border: 0;
-                cursor: pointer;
-                font-size: 16px;
-            }
+        br {
+            margin: 0;
+            padding: 0;
+            line-height: normal;
+        }
 
-            button:hover {
-                background-color: #ddd;
-            }
+        button {
+            border: 0;
+            cursor: pointer;
+            font-size: 16px;
+            background-color: #e8e8e8;
+            padding: 10px 20px;
+            font-family: inherit;
+            border-radius: 5px;
+        }
 
-            /* From Uiverse.io by Cevorob */
-            #help {
-                position: relative;
-                height: 50px;
-                width: 40px;
-                padding: 0 30px;
-                border: 2px solid #000;
-                background: #e8e8e8;
-                user-select: none;
-                white-space: nowrap;
-                transition: all 0.05s linear;
-                font-family: inherit;
-            }
+        button:hover {
+            background-color: #ddd;
+        }
 
-            #help:before,
-            #help:after {
-                content: '';
-                position: absolute;
-                background: #e8e8e8;
-                transition: all 0.2s linear;
-            }
 
-            #help:before {
-                width: calc(100% + 6px);
-                height: calc(100% - 16px);
-                top: 8px;
-                left: -3px;
-            }
 
-            #help:after {
-                width: calc(100% - 16px);
-                height: calc(100% + 6px);
-                top: -3px;
-                left: 8px;
-            }
+        strong {
+            height: 1rem;
+            position: absolute;
+        }
 
-            #help:hover {
-                cursor: crosshair;
-            }
+        /* Estilo de desfoque */
+        canvas {
+            filter: blur(10px);
+            z-index: -1;
+        }
 
-            #help:active {
-                transform: scale(0.95);
-            }
+        /* Conteúdo sobre o fundo */
+        #overlayContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            display: block;
+        }
 
-            #help:hover:before {
-                height: calc(100% - 32px);
-                top: 16px;
-            }
 
-            #help:hover:after {
-                width: calc(100% - 32px);
-                left: 16px;
-            }
+        #removeBlurButton {
+            font-size: 18px;
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
 
-            #help span {
-                font-size: 15px;
-                z-index: 3;
-                position: relative;
-                font-weight: 600;
-                justify-content: center;
-                display: flex;
-            }
 
-            strong {
-                height: 1rem;
-                position: absolute;
-            }
-        </style>
-    </head>
+        #help {
+            position: relative;
+            height: 50px;
+            width: 40px;
+            padding: 0 30px;
+            border: 2px solid #000;
+            background: #e8e8e8;
+            user-select: none;
+            white-space: nowrap;
+            transition: all 0.05s linear;
+            font-family: inherit;
+        }
 
-    <div style="display: inline-block; position: relative">
-        <div
-            id="overlappingDiv"
-            style="
+        #help:before,
+        #help:after {
+            content: '';
+            position: absolute;
+            background: #e8e8e8;
+            transition: all 0.2s linear;
+        }
+
+        #help:before {
+            width: calc(100% + 6px);
+            height: calc(100% - 16px);
+            top: 8px;
+            left: -3px;
+        }
+
+        #help:after {
+            width: calc(100% - 16px);
+            height: calc(100% + 6px);
+            top: -3px;
+            left: 8px;
+        }
+
+        #help:hover {
+            cursor: crosshair;
+        }
+
+        #help:active {
+            transform: scale(0.95);
+        }
+
+        #help:hover:before {
+            height: calc(100% - 32px);
+            top: 16px;
+        }
+
+        #help:hover:after {
+            width: calc(100% - 32px);
+            left: 16px;
+        }
+
+        #help span {
+            font-size: 15px;
+            z-index: 3;
+            position: relative;
+            font-weight: 600;
+            justify-content: center;
+            display: flex;
+        }
+
+        strong {
+            height: 1rem;
+            position: absolute;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="commands" style="
+        position: absolute;
+        top: 2%;
+        left: 1%;
+        color: white;
+        z-index: 10;
+        display: none;
+    ">
+        <button id="help">
+            <span> W </span>
+        </button>
+        <button id="help">
+            <span> A </span>
+        </button>
+        <button id="help">
+            <span> S </span>
+        </button>
+        <button id="help">
+            <span> D </span>
+        </button>
+        <h4 style="margin-left: 38%">MOVER</h4>
+    </div>
+
+    <div id="interactCommands" style="
+        position: absolute;
+        top: 2%;
+        right: 1%;
+        color: white;
+        z-index: 10;
+        display: none;
+    ">
+        <button id="help" style="width: 100px">
+            <span> Space </span>
+        </button>
+        <h4 style="margin-left: -15%">INTERAGIR</h4>
+    </div>
+    <div id="overlayContent">
+        <div id="overlappingDiv" style="
                 background-color: black;
                 position: absolute;
                 top: 0;
@@ -121,54 +196,19 @@
                 opacity: 0;
                 pointer-events: none;
                 z-index: 10;
-            "
-        ></div>
+            "></div>
 
-        <div
-            id="commands"
-            style="
-                position: absolute;
-                top: 2%;
-                left: 1%;
-                color: white;
-                z-index: 10;
-            "
-        >
-            <button id="help">
-                <span> W </span>
-            </button>
-            <button id="help">
-                <span> A </span>
-            </button>
-            <button id="help">
-                <span> S </span>
-            </button>
-            <button id="help">
-                <span> D </span>
-            </button>
-            <h4 style="margin-left: 38%">MOVER</h4>
-        </div>
+        <h1>O Legado de Tróia</h1>
+        <br><br>
+        <h4>Exploração Interativa sobre a <br>Cidade-Estado de Tróia<br><br><br> Realizada sob a orientação da<br> <span style="font-weight: bold;">Professora Mara Cristina</span></h4>
+        <button id="removeBlurButton">Iniciar Jogo</button>
+        
+    </div>
 
-        <div
-            id="interactCommands"
-            style="
-                position: absolute;
-                top: 2%;
-                right: 1%;
-                color: white;
-                z-index: 10;
-            "
-        >
-            <button id="help" style="width: 100px">
-                <span> Space </span>
-            </button>
-            <h4 style="margin-left: -15%">INTERAGIR</h4>
-        </div>
 
-        <canvas></canvas>
-        <div
-            id="characterDialogueBox"
-            style="
+    <canvas id="gameBackground"></canvas>
+
+    <div id="characterDialogueBox" style="
                 background-color: white;
                 height: 180px;
                 position: absolute;
@@ -178,12 +218,10 @@
                 border-top: 4px black solid;
                 display: none;
                 padding: 12px;
-            "
-        ></div>
+            "></div>
 
-        <div id="userInterface" style="display: none">
-            <div
-                style="
+    <div id="userInterface" style="display: none">
+        <div style="
                     background-color: white;
                     height: 140px;
                     position: absolute;
@@ -192,11 +230,8 @@
                     right: 0;
                     border-top: 4px black solid;
                     display: flex;
-                "
-            >
-                <div
-                    id="dialogueBox"
-                    style="
+                ">
+            <div id="dialogueBox" style="
                         position: absolute;
                         top: 0;
                         right: 0;
@@ -206,29 +241,34 @@
                         padding: 12px;
                         display: none;
                         cursor: pointer;
-                    "
-                >
-                    sdkfjlsdajl
-                </div>
+                    ">
+                sdkfjlsdajl
             </div>
         </div>
     </div>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
-        integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    ></script>
-    <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
-        integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    ></script>
-    <script src="data/audio.js"></script>
-    <script src="data/collisions.js"></script>
-    <script src="data/characters.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="classes.js"></script>
-    <script src="index.js"></script>
+
+    <script>
+        function removeBlur() {
+            document.getElementById('gameBackground').style.filter = 'none';
+            document.getElementById('overlayContent').style.display = 'none';
+            document.getElementById('commands').style.display = 'block';
+            document.getElementById('interactCommands').style.display = 'block';
+        }
+
+        document.getElementById('removeBlurButton').addEventListener('click', removeBlur);
+    </script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+    integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+    integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="data/audio.js"></script>
+<script src="data/collisions.js"></script>
+<script src="data/characters.js"></script>
+<script src="js/utils.js"></script>
+<script src="classes.js"></script>
+<script src="index.js"></script>
+
 </html>
